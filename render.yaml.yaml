@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: trekking-management-system
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
