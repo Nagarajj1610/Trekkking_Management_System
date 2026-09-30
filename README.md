@@ -6,10 +6,22 @@ The application is designed to manage trekking routes, trekker registrations, st
 
 ## Live Demo
 
-**Live Website:**  
+## Live Demo
+
+🌐 **Live Website:**  
 https://trekking-management-system.onrender.com
 
-> The application is deployed on Render for demonstration purposes.
+The application is deployed on Render for demonstration purposes.
+
+### Demo Credentials
+
+| Role | Email | Password |
+|------|-------|----------|
+| Admin | `admin@gmail.com` | `admin123` |
+| Trekker | `trekker@test.com` | `trekker123` |
+| Staff | `staff@test.com` | `staff123` |
+
+> **Note:** These credentials are created specifically for demonstrating the application. Please do not enter personal information while testing the demo.
 
 # Trekking Management System
 
