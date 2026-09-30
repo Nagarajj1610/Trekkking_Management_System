@@ -9,8 +9,7 @@ The application is designed to manage trekking routes, trekker registrations, st
 ## Live Demo
 
 🌐 **Live Website:**  
-https://trekking-management-system.onrender.com
-
+https://trekkking-management-system.onrender.com
 The application is deployed on Render for demonstration purposes.
 
 ### Demo Credentials
