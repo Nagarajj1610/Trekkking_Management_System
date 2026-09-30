@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='main.css') }}">
+
+    <title>
+        {% block title %}
+        G1 Adventures
+        {% endblock %}
+    </title>
+
+</head>
+
+<body>
+
+    <aside class="side-container">
+
+        <nav>
+
+            {% if session.get('role') == 'Admin' %}
+
+                <a href="/admin/dashboard"
+                   {% if request.path == '/admin/dashboard' %}class="active"{% endif %}>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="/treks"
+                   {% if request.path == '/treks' %}class="active"{% endif %}>
+                    <span>Treks</span>
+                </a>
+
+                <a href="/admin/staff"
+                   {% if request.path == '/admin/staff' %}class="active"{% endif %}>
+                    <span>Staff</span>
+                </a>
+
+                <a href="/admin/bookings"
+                   {% if request.path == '/admin/bookings' %}class="active"{% endif %}>
+                    <span>Bookings</span>
+                </a>
+
+                <a href="/admin/search"
+                   {% if request.path == '/admin/search' %}class="active"{% endif %}>
+                    <span>Search</span>
+                </a>
+
+
+            {% elif session.get('role') == 'Trek Staff' %}
+
+                <a href="/staff/dashboard"
+                   {% if request.path == '/staff/dashboard' %}class="active"{% endif %}>
+                    <span>Dashboard</span>
+                </a>
+
+
+            {% elif session.get('role') == 'Trekker' %}
+
+                <a href="/user/dashboard"
+                   {% if request.path == '/user/dashboard' %}class="active"{% endif %}>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="/user/bookings"
+                   {% if request.path == '/user/bookings' %}class="active"{% endif %}>
+                    <span>My Bookings</span>
+                </a>
+
+                <a href="/user/history"
+                   {% if request.path == '/user/history' %}class="active"{% endif %}>
+                    <span>Trekking History</span>
+                </a>
+
+                <a href="/user/profile"
+                   {% if request.path == '/user/profile' %}class="active"{% endif %}>
+                    <span>Edit Profile</span>
+                </a>
+
+            {% endif %}
+
+
+            <a href="/logout">
+                <span>Logout</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <main>
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+
+</body>
+
+</html>

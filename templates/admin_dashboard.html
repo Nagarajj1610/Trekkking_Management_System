@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}
+Admin Dashboard
+{% endblock %}
+
+{% block content %}
+
+<h1>Welcome to G1 Adventures</h1>
+
+<table>
+    <tr>
+
+        <td>
+            <table class="container">
+                <tr class="mini-buttons">
+                    <td>Total Treks</td>
+                </tr>
+
+                <tr class="mini-buttons">
+                    <td>{{ total_treks }}</td>
+                </tr>
+            </table>
+        </td>
+
+
+        <td>
+            <table class="container">
+                <tr class="mini-buttons">
+                    <td>Total Users</td>
+                </tr>
+
+                <tr class="mini-buttons">
+                    <td>{{ total_users }}</td>
+                </tr>
+            </table>
+        </td>
+
+
+        <td>
+            <table class="container">
+                <tr class="mini-buttons">
+                    <td>Total Staff</td>
+                </tr>
+
+                <tr class="mini-buttons">
+                    <td>{{ total_staff }}</td>
+                </tr>
+            </table>
+        </td>
+
+
+        <td>
+            <table class="container">
+                <tr class="mini-buttons">
+                    <td>Total Bookings</td>
+                </tr>
+
+                <tr class="mini-buttons">
+                    <td>{{ total_bookings }}</td>
+                </tr>
+            </table>
+        </td>
+
+    </tr>
+</table>
+
+{% endblock %}

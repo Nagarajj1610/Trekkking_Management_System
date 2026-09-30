@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}
+Trekking History
+{% endblock %}
+
+{% block content %}
+
+<h1>Trekking History</h1>
+
+<table border="1">
+
+    <tr>
+        <th>Trek</th>
+        <th>Location</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Status</th>
+        <th>Booking Status</th>
+    </tr>
+
+    {% for trek in history %}
+
+    <tr>
+
+        <td>{{ trek['trek_name'] }}</td>
+        <td>{{ trek['location'] }}</td>
+        <td>{{ trek['start_date'] }}</td>
+        <td>{{ trek['end_date'] }}</td>
+        <td>{{ trek['status'] }}</td>
+        <td>{{ trek['booking_status'] }}</td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}

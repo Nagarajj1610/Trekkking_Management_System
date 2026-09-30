@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}
+Manage Trek
+{% endblock %}
+
+{% block content %}
+
+<h1>Manage Trek</h1>
+
+<table border="1">
+
+    <tr>
+        <th>Trek ID</th>
+        <td>{{ trek['trek_id'] }}</td>
+    </tr>
+
+    <tr>
+        <th>Trek Name</th>
+        <td>{{ trek['trek_name'] }}</td>
+    </tr>
+
+    <tr>
+        <th>Location</th>
+        <td>{{ trek['location'] }}</td>
+    </tr>
+
+    <tr>
+        <th>Difficulty</th>
+        <td>{{ trek['difficulty'] }}</td>
+    </tr>
+
+    <tr>
+        <th>Duration</th>
+        <td>{{ trek['duration'] }}</td>
+    </tr>
+
+    <tr>
+        <th>Available Slots</th>
+        <td>{{ trek['available_slots'] }}</td>
+    </tr>
+
+    <tr>
+        <th>Status</th>
+        <td>{{ trek['status'] }}</td>
+    </tr>
+
+</table>
+
+<br>
+
+<h2>Update Trek</h2>
+
+<form action="/staff/trek/{{ trek['trek_id'] }}/update"
+      method="POST">
+
+    <label>Available Slots</label>
+
+    <input type="number"
+           name="available_slots"
+           value="{{ trek['available_slots'] }}"
+           min="0"
+           required>
+
+    <br><br>
+
+    <label>Status</label>
+
+    <select name="status">
+
+        <option value="Open"
+            {% if trek['status'] == 'Open' %}selected{% endif %}>
+            Open
+        </option>
+
+        <option value="Started"
+            {% if trek['status'] == 'Started' %}selected{% endif %}>
+            Started
+        </option>
+
+        <option value="Completed"
+            {% if trek['status'] == 'Completed' %}selected{% endif %}>
+            Completed
+        </option>
+
+    </select>
+
+    <br><br>
+
+    <button type="submit">
+        Update Trek
+    </button>
+
+</form>
+
+<br>
+
+<a href="/staff/dashboard">
+    Back to Dashboard
+</a>
+
+{% endblock %}

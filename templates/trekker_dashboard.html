@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block title %}
+Trekker Dashboard
+{% endblock %}
+
+{% block content %}
+
+<h2>Search Treks</h2>
+
+<form action="/user/dashboard" method="GET">
+
+    <input type="text"
+           name="query"
+           value="{{ query }}"
+           placeholder="Search by trek or location">
+
+    <button type="submit">
+        Search
+    </button>
+
+</form>
+
+
+<h2>Available Treks</h2>
+
+<table border="1">
+
+    <tr>
+        <th>Trek</th>
+        <th>Location</th>
+        <th>Difficulty</th>
+        <th>Duration</th>
+        <th>Slots</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+
+
+    {% for trek in available_treks %}
+
+    <tr>
+
+        <td>
+            {{ trek['trek_name'] }}
+        </td>
+
+        <td>
+            {{ trek['location'] }}
+        </td>
+
+        <td>
+            {{ trek['difficulty'] }}
+        </td>
+
+        <td>
+            {{ trek['duration'] }}
+        </td>
+
+        <td>
+            {{ trek['available_slots'] }}
+        </td>
+
+        <td>
+            {{ trek['status'] }}
+        </td>
+
+        <td>
+
+            <form action="/book" method="POST">
+
+                <input type="hidden"
+                       name="trek_id"
+                       value="{{ trek['trek_id'] }}">
+
+                <input type="date"
+                       name="booking_date"
+                       required>
+
+                <button type="submit">
+                    Book
+                </button>
+
+            </form>
+
+        </td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+
+<h2>My Bookings</h2>
+
+<table border="1">
+
+    <tr>
+        <th>Trek</th>
+        <th>Location</th>
+        <th>Status</th>
+        <th>Booking Status</th>
+    </tr>
+
+
+    {% for booking in booked_treks %}
+
+    <tr>
+
+        <td>
+            {{ booking['trek_name'] }}
+        </td>
+
+        <td>
+            {{ booking['location'] }}
+        </td>
+
+        <td>
+            {{ booking['status'] }}
+        </td>
+
+        <td>
+            {{ booking['booking_status'] }}
+        </td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}

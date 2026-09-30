@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign Up</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='main.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Sign Up</h1>
+
+        <form action="/register" method="POST">
+
+
+
+
+            <table>
+
+                <tr>
+                    <td>
+                        <label>Email ID: *</label>
+                    </td>
+
+                    <td>
+                        <input type="email"
+                               name="email"
+                               required>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <label>Full name: *</label>
+                    </td>
+
+                    <td>
+                        <input type="text"
+                               name="name"
+                               required>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <label>User type: *</label>
+                    </td>
+
+                    <td>
+                        <select name="role" required>
+
+                            <option value=""
+                                    selected
+                                    disabled>
+                                Select user type
+                            </option>
+
+                            <option value="Trekker">
+                                Trekker
+                            </option>
+
+                            <option value="Trek Staff">
+                                Trek Staff
+                            </option>
+
+                        </select>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <label>Password: *</label>
+                    </td>
+
+                    <td>
+                        <input type="password"
+                               name="password"
+                               required>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <input type="submit"
+                               value="Signup">
+                    </td>
+
+                    <td>
+                        <a href="/login">
+                            <label>Existing user?</label>
+                        </a>
+                    </td>
+                </tr>
+
+            </table>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

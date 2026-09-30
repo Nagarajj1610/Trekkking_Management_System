@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block title %}
+Add New Trek
+{% endblock %}
+
+{% block content %}
+
+<h1>Add New Trek</h1>
+
+<form action="/trek/add" method="POST">
+
+    <label>Trek Name</label>
+    <input type="text"
+           name="trek_name"
+           required>
+
+    <br><br>
+
+    <label>Location</label>
+    <input type="text"
+           name="location"
+           required>
+
+    <br><br>
+
+    <label>Difficulty</label>
+    <select name="difficulty" required>
+
+        <option value="Easy">Easy</option>
+        <option value="Moderate">Moderate</option>
+        <option value="Hard">Hard</option>
+
+    </select>
+
+    <br><br>
+
+    <label>Duration</label>
+    <input type="number"
+           name="duration"
+           min="1"
+           required>
+
+    <br><br>
+
+    <label>Available Slots</label>
+    <input type="number"
+           name="available_slots"
+           min="0"
+           required>
+
+    <br><br>
+
+    <label>Status</label>
+    <select name="status" required>
+
+        <option value="Open">Open</option>
+        <option value="Started">Started</option>
+        <option value="Completed">Completed</option>
+
+    </select>
+
+    <br><br>
+
+    <label>Start Date</label>
+    <input type="date"
+           name="start_date"
+           required>
+
+    <br><br>
+
+    <label>End Date</label>
+    <input type="date"
+           name="end_date"
+           required>
+
+    <br><br>
+
+    <label>Description</label>
+    <textarea name="description"
+              rows="5"
+              cols="40"></textarea>
+
+    <br><br>
+
+    <button type="submit">
+        Add Trek
+    </button>
+
+</form>
+
+{% endblock %}

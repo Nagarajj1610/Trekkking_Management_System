@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}
+Staff Dashboard
+{% endblock %}
+
+{% block content %}
+
+<h1>Staff Dashboard</h1>
+
+<h2>Assigned Treks</h2>
+
+<table border="1">
+
+    <tr>
+        <th>Trek</th>
+        <th>Location</th>
+        <th>Difficulty</th>
+        <th>Slots</th>
+        <th>Registered Users</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for trek in treks %}
+
+    <tr>
+
+        <td>{{ trek['trek_name'] }}</td>
+        <td>{{ trek['location'] }}</td>
+        <td>{{ trek['difficulty'] }}</td>
+        <td>{{ trek['available_slots'] }}</td>
+        <td>{{ trek['registered_users'] }}</td>
+        <td>{{ trek['status'] }}</td>
+
+        <td>
+            <a href="/staff/trek/{{ trek['trek_id'] }}/participants">
+                Participants
+            </a>
+
+            <a href="/staff/trek/{{ trek['trek_id'] }}/manage">
+                Manage
+            </a>
+        </td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}
+Manage Staff
+{% endblock %}
+
+{% block content %}
+
+<table border="1">
+
+<tr>
+    <th>Staff ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Specialization</th>
+    <th>Approval</th>
+    <th>Account</th>
+    <th>Actions</th>
+</tr>
+
+{% for staff_member in staff %}
+
+<tr>
+
+    <td>{{ staff_member['staff_id'] }}</td>
+    <td>{{ staff_member['name'] }}</td>
+    <td>{{ staff_member['email'] }}</td>
+    <td>{{ staff_member['phone'] }}</td>
+    <td>{{ staff_member['specialization'] }}</td>
+    <td>{{ staff_member['approval_status'] }}</td>
+    <td>{{ staff_member['account_status'] }}</td>
+
+    <td>
+
+        {% if staff_member['approval_status'] == 'Pending' %}
+
+            <form action="/admin/staff/{{ staff_member['staff_id'] }}/approve"
+                  method="POST">
+
+                <button type="submit">
+                    Approve
+                </button>
+
+            </form>
+
+        {% endif %}
+
+        <a href="/admin/staff/{{ staff_member['staff_id'] }}/assign">
+            Assign Trek
+        </a>
+
+        <form action="/admin/staff/{{ staff_member['user_id'] }}/deactivate"
+              method="POST">
+
+            <button type="submit">
+                Deactivate
+            </button>
+
+        </form>
+
+    </td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

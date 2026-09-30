@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}
+Manage Treks
+{% endblock %}
+
+{% block content %}
+
+<h1>Manage Treks</h1>
+
+<a href="/trek/add">Add New Trek</a>
+
+<br><br>
+
+<table border="1">
+
+    <tr>
+        <th>Trek ID</th>
+        <th>Trek Name</th>
+        <th>Location</th>
+        <th>Difficulty</th>
+        <th>Duration</th>
+        <th>Available Slots</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for trek in treks %}
+
+    <tr>
+        <td>{{ trek['trek_id'] }}</td>
+        <td>{{ trek['trek_name'] }}</td>
+        <td>{{ trek['location'] }}</td>
+        <td>{{ trek['difficulty'] }}</td>
+        <td>{{ trek['duration'] }}</td>
+        <td>{{ trek['available_slots'] }}</td>
+        <td>{{ trek['status'] }}</td>
+
+        <td>
+            <a href="/trek/{{ trek['trek_id'] }}/edit">
+                Edit
+            </a>
+
+            <form action="/trek/{{ trek['trek_id'] }}/delete"
+                  method="POST"
+                  style="display:inline;">
+
+                <button type="submit">
+                    Delete
+                </button>
+
+            </form>
+        </td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}
+

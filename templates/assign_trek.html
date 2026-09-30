@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}
+Assign Trek
+{% endblock %}
+
+{% block content %}
+
+<h1>Assign Trek</h1>
+
+<p>
+    Staff Member:
+    <strong>{{ staff['name'] }}</strong>
+</p>
+
+<h2>Available Treks</h2>
+
+<table border="1">
+
+    <tr>
+        <th>Trek ID</th>
+        <th>Trek Name</th>
+        <th>Action</th>
+    </tr>
+
+    {% for trek in treks %}
+
+    <tr>
+
+        <td>
+            {{ trek['trek_id'] }}
+        </td>
+
+        <td>
+            {{ trek['trek_name'] }}
+        </td>
+
+        <td>
+
+            <form action="/admin/trek/{{ trek['trek_id'] }}/assign-staff"
+                  method="POST">
+
+                <input type="hidden"
+                       name="staff_id"
+                       value="{{ staff['staff_id'] }}">
+
+                <button type="submit">
+                    Assign
+                </button>
+
+            </form>
+
+        </td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+<br>
+
+<a href="/admin/staff">
+    Back to Staff
+</a>
+
+{% endblock %}
