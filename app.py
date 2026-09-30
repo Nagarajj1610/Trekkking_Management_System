@@ -57,7 +57,9 @@ def staff_required():
         return False
     return True
 
-
+@app.route('/')
+def home():
+    return redirect('/login')
     
 
 
