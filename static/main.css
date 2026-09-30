@@ -1,0 +1,67 @@
+.container {
+    border: 2px solid rgb(53, 133, 254);
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 30px;
+}
+
+.center {
+    text-align: center;
+    margin: auto;
+    color: rgb(53, 97, 193);
+}
+
+.side-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 220px;
+    height: 100vh;
+    background-color: lightgrey;
+}
+
+.side-container nav {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 10px;
+    margin-top: 30px;
+}
+
+.side-container nav a {
+    display: block;
+    padding: 12px 15px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.side-container nav a:hover {
+    background-color: #dcdcdc;
+}
+
+.side-container nav a.active {
+    background-color: #eaf2ff;
+    color: #2166d1;
+    font-weight: bold;
+}
+
+main {
+    margin-left: 220px;
+    padding: 30px;
+}
+
+.mini-buttons td {
+    font-weight: bold;
+    text-align: left;
+    font-size: 25px;
+    padding-right: 30px;
+}
+
+.first-row td {
+    background-color: lightgray;
+    font-weight: bold;
+    padding: 10px;
+}
+
